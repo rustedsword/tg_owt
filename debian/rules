@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# Upstream picks up system abseil, libsrtp2 and crc32c on its own when
+# find_package succeeds (cmake/external.cmake). Ubuntu has the first two, so
+# only crc32c and libyuv are built from the bundled submodules. No unbundling
+# patches are needed, and RNNoise stays enabled as upstream ships it.
+#
+# CMAKE_BUILD_TYPE is deliberately left at debhelper's default of None. Since
+# upstream commit 5c5c712 the NDEBUG state is propagated to consumers through
+# the exported tg_owt::libwebrtcbuild interface target, so telegram-desktop
+# automatically compiles with the same assertion setting this library did —
+# which is the ABI hazard the Gentoo ebuild warns about.
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DBUILD_SHARED_LIBS=OFF \
+		-DTG_OWT_USE_X11=ON \
+		-DTG_OWT_USE_PIPEWIRE=ON \
+		-DTG_OWT_DLOPEN_PIPEWIRE=OFF \
+		-DTG_OWT_BUILD_AUDIO_BACKENDS=OFF

@@ -1,2 +1,10 @@
 out/
 .DS_Store
+build-packages/
+.cache/
+obj-*/
+debian/.debhelper/
+debian/files
+debian/libtgowt-dev/
+debian/*.substvars
+debian/debhelper-build-stamp

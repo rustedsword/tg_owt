@@ -1,0 +1,13 @@
+# These become tar --exclude patterns. A pattern without a slash matches ANY
+# path component, and dpkg-source names members "<package>-<version>/..." so a
+# leading ./ anchors nothing — only distinctive names are safe here.
+#
+# "build" must never appear: it would strip any nested build directory from the
+# source tarball. In this tree that silently removed src/build/build_config.h.
+#
+# Top-level scratch directories are already stripped by inside-container.sh
+# when it copies the tree, where ./-anchored excludes do work.
+tar-ignore = .git
+tar-ignore = .cache
+tar-ignore = build-packages
+tar-ignore = obj-*
