@@ -1,0 +1,48 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: tg_owt
+Upstream-Contact: https://github.com/desktop-app/tg_owt/issues
+Source: https://github.com/desktop-app/tg_owt
+Comment:
+ tg_owt is a reduced fork of the WebRTC project. The overwhelming majority of
+ the tree is covered by the WebRTC BSD-3-clause licence reproduced below, as
+ stated in the upstream LICENSE file. Individual imported components under
+ src/third_party/ carry their own compatible notices; this file is a summary
+ for a PPA rebuild rather than an exhaustive per-file audit.
+
+Files: *
+Copyright: 2011-2026, The WebRTC project authors
+           2020-2026, John Preston and the desktop-app contributors
+License: BSD-3-clause-WebRTC
+
+Files: debian/*
+Copyright: 2026, Stanislav Aleksandrov <lightofmysoul@gmail.com>
+License: BSD-3-clause-WebRTC
+
+License: BSD-3-clause-WebRTC
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ .
+   * Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+ .
+   * Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the
+     distribution.
+ .
+   * Neither the name of Google nor the names of its contributors may
+     be used to endorse or promote products derived from this software
+     without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

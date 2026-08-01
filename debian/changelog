@@ -1,0 +1,45 @@
+libtgowt (0~git20261013.07fb35b+ppa1~resolute1) resolute; urgency=medium
+
+  * Reject SCTP acknowledgments beyond sent data and limit remote simulcast
+    layers to the codec capacity, both backported from WebRTC.
+
+ -- Stanislav Aleksandrov <lightofmysoul@gmail.com>  Wed, 21 Oct 2026 22:17:13 +0000
+
+libtgowt (0~git20261007.d1cf250+ppa1~resolute1) resolute; urgency=medium
+
+  * New upstream snapshot d1cf250, the tg_owt revision pinned by Telegram
+    Desktop v7.3.0. It fixes a use-after-free on GOOG_DELTA_ACK, crashes on
+    zero-length GOOG_MISC_INFO and on DTLS/SCTP in unsupported media, and VP8
+    temporal layer bounds checking, and builds with GCC 16 and OpenSSL 4.
+  * CMake now finds GL/gl.h and EGL/egl.h directly instead of the gl and egl
+    pkg-config modules. libgl-dev and libegl-dev still provide both headers,
+    so Build-Depends are unchanged.
+
+ -- Stanislav Aleksandrov <lightofmysoul@gmail.com>  Fri, 09 Oct 2026 14:00:00 +0000
+
+libtgowt (0~git20260409.89df288+ppa2~resolute1) resolute; urgency=medium
+
+  * Stop stripping nested build directories from the source tarball. The
+    debian/source/options tar-ignore patterns are passed to tar --exclude,
+    which matches any path component when the pattern has no slash, so
+    "build" also removed src/build/ — and with it build_config.h — from the
+    published source. Nothing in CMakeLists.txt compiles the one file that
+    includes it, so the build was unaffected, but the source package was
+    incomplete.
+  * Test-build the extracted source package rather than the working-tree
+    copy, so this class of packaging defect is caught before upload.
+
+ -- Stanislav Aleksandrov <lightofmysoul@gmail.com>  Sat, 01 Aug 2026 22:30:00 +0000
+
+libtgowt (0~git20260409.89df288+ppa1~resolute1) resolute; urgency=medium
+
+  * Initial packaging for ppa:lightofmysoul/tg.
+  * Built from upstream commit 89df288, the tg_owt revision pinned by Telegram
+    Desktop v7.0.7.
+  * Uses Ubuntu's abseil and libsrtp2; builds crc32c and libyuv from the
+    bundled submodules because Ubuntu ships no libcrc32c-dev and upstream has
+    no system-libyuv option. No source patches are applied.
+  * RNNoise is enabled, unlike the Debian package, which must strip the
+    trained model for DFSG reasons.
+
+ -- Stanislav Aleksandrov <lightofmysoul@gmail.com>  Sat, 01 Aug 2026 17:56:51 +0000

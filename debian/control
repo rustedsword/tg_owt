@@ -1,0 +1,77 @@
+Source: libtgowt
+Section: libs
+Priority: optional
+Maintainer: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 13),
+ libabsl-dev,
+ libavcodec-dev,
+ libavformat-dev,
+ libavutil-dev,
+ libdrm-dev,
+ libegl-dev,
+ libgbm-dev,
+ libgl-dev,
+ libglib2.0-dev,
+ libjpeg-dev,
+ libopenh264-dev,
+ libopus-dev,
+ libpipewire-0.3-dev,
+ libpulse-dev,
+ libsrtp2-dev,
+ libssl-dev,
+ libswresample-dev,
+ libswscale-dev,
+ libvpx-dev,
+ libxcomposite-dev,
+ libxdamage-dev,
+ libxext-dev,
+ libxfixes-dev,
+ libxrandr-dev,
+ libxrender-dev,
+ libxtst-dev,
+ pkgconf,
+ python3:any,
+Standards-Version: 4.7.3
+Rules-Requires-Root: no
+Homepage: https://github.com/desktop-app/tg_owt
+
+Package: libtgowt-dev
+Section: libdevel
+Architecture: amd64 arm64
+Multi-Arch: same
+Depends:
+ libabsl-dev,
+ libavcodec-dev,
+ libavformat-dev,
+ libavutil-dev,
+ libglib2.0-dev,
+ libjpeg-dev,
+ libopenh264-dev,
+ libopus-dev,
+ libpipewire-0.3-dev,
+ libsrtp2-dev,
+ libssl-dev,
+ libswresample-dev,
+ libswscale-dev,
+ libvpx-dev,
+ libx11-dev,
+ libxcomposite-dev,
+ libxdamage-dev,
+ libxext-dev,
+ libxfixes-dev,
+ libxrandr-dev,
+ libxrender-dev,
+ libxtst-dev,
+ ${misc:Depends},
+Description: Telegram's WebRTC fork (static library)
+ tg_owt is the reduced fork of Google's WebRTC that Telegram Desktop uses for
+ voice and video calls and for screen sharing.
+ .
+ This package ships a static library, its headers and a CMake package
+ configuration. There is no shared library and therefore no runtime package:
+ anything linking tg_owt must be rebuilt when this package changes.
+ .
+ Built from the exact upstream commit that the corresponding Telegram Desktop
+ release pins, with RNNoise enabled as upstream ships it.
